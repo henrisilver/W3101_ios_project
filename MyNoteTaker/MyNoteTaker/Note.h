@@ -12,6 +12,10 @@
 
 @interface Note : NSObject <NSCoding>
 
+// The Note object, the data model used in my project: the text of the note
+// is represented using a NSString, note; the date when the note was last modified
+// is represented using a NSDate object, called lastModifiedDate; and the image
+// associated with the note is represented by a UIImage object, image.
 @property NSString *note;
 
 @property NSDate *lastModifiedDate;

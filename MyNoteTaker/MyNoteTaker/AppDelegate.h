@@ -13,7 +13,12 @@
 
 @property (strong, nonatomic) UIWindow *window;
 @property (strong, nonatomic) id<UIApplicationDelegate>delagete;
-@property (nonatomic, strong) MFMailComposeViewController *globalMailComposer;
+
+// globalMailComposer used to work around the issue Apple has with the
+// MFMailComposeViewController
+@property (strong, nonatomic) MFMailComposeViewController *globalMailComposer;
+
+// Array used to store the array of loaded notes from memory
 @property NSArray *loadedNotes;
 
 - (void) cycleTheGlobalMailComposer;

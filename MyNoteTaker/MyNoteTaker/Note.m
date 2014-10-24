@@ -10,6 +10,7 @@
 
 @implementation Note
 
+// Below, the implementation of the NSCoding protocol
 #pragma mark - NSCoding
 
 - (id)initWithCoder:(NSCoder *)decoder {

@@ -19,7 +19,7 @@
     
     [self cycleTheGlobalMailComposer];
     
-    // look for saved data.
+    // Evaluates whether there are notes stored on memory and loads them from memory
     NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
     NSString *documentsDirectoryPath = [paths objectAtIndex:0];
     NSString *filePath = [documentsDirectoryPath stringByAppendingPathComponent:@"appData"];
@@ -35,12 +35,15 @@
     return YES;
 }
 
+// Used to cycle the global Mail Composer to work around the mail issue from Apple
 - (void) cycleTheGlobalMailComposer
 {
     self.globalMailComposer = nil;
     self.globalMailComposer = [[MFMailComposeViewController alloc] init];
 }
 
+// Saves current state of notes data in the app to memory. I store the array of Notes,
+// having the Note class implement the NSCoding interface.
 - (void) saveData {
     NSMutableDictionary *dataDict = [[NSMutableDictionary alloc] initWithCapacity:1];
     if (self.loadedNotes != nil) {
@@ -54,6 +57,7 @@
     [NSKeyedArchiver archiveRootObject:dataDict toFile:filePath];
 }
 
+// When the application will be come, inactive, data is saved.
 - (void)applicationWillResignActive:(UIApplication *)application {
     // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
     // Use this method to pause ongoing tasks, disable timers, and throttle down OpenGL ES frame rates. Games should use this method to pause the game.
@@ -73,6 +77,7 @@
     // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
 }
 
+// When application is terminated, data is saved.
 - (void)applicationWillTerminate:(UIApplication *)application {
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
     [self saveData];

@@ -13,9 +13,6 @@
 @interface MyNoteTakerTableViewController : UITableViewController
 
 
-@property Note *currentNote;
-@property AppDelegate *delegate;
 
-- (IBAction)unwindToList:(UIStoryboardSegue *)segue;
 
 @end

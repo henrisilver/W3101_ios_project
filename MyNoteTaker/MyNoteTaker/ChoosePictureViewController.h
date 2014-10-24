@@ -10,7 +10,7 @@
 
 @interface ChoosePictureViewController : UIViewController <UIImagePickerControllerDelegate, UINavigationControllerDelegate>
 
-@property UIImagePickerController *ipc;
+@property UIImagePickerController *imagePicker;
 @property UIPopoverController *popover;
 @property UIImage *picture;
 
