@@ -6,8 +6,6 @@
 //  Copyright (c) 2014 Henrique de Almeida Machado da Silveira. All rights reserved.
 //
 
-// ADD CODE FOR IMAGE
-
 #import "AddNoteViewController.h"
 #import "MyNoteTakerTableViewController.h"
 #import "ChoosePictureViewController.h"
@@ -38,6 +36,22 @@
     [self presentViewController:self.delegate.globalMailComposer animated:YES completion:nil];
 }
 
+-(BOOL)shouldPerformSegueWithIdentifier:(NSString *)identifier sender:(id)sender
+{
+    if((UIBarButtonItem *) sender == self.backButton && [self.textView.text length] == 0 && self.rowImage != nil )
+    {
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Error"
+                                                        message:@"Your note has a picture but has no text. Please enter text or tap Delete."
+                                                       delegate:nil
+                                              cancelButtonTitle:@"OK"
+                                              otherButtonTitles:nil];
+        [alert show];
+        return NO;
+
+    }
+    else
+        return YES;
+}
 
 - (void)mailComposeController:(MFMailComposeViewController *)controller didFinishWithResult:(MFMailComposeResult)result error:(NSError*)error
 {
@@ -65,11 +79,6 @@
     [doneToolbar sizeToFit];
     textView.inputAccessoryView = doneToolbar;
 }
-
-//remember to set your text view delegate
-//but if you only have 1 text view in your view controller
-//you can simply change currentTextField to the name of your text view
-//and ignore this textViewDidBeginEditing delegate method
 
 -(void)doneButtonClickedDismissKeyboard
 {

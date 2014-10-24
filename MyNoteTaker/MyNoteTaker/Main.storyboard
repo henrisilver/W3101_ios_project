@@ -21,9 +21,9 @@
                     </tableView>
                     <navigationItem key="navigationItem" title="My Note Taker" id="l9r-IL-mDf">
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="YgN-j8-I72">
-                            <color key="tintColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                            <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             <connections>
-                                <segue destination="FA0-EG-HQk" kind="presentation" id="i2u-uy-DUe"/>
+                                <segue destination="FA0-EG-HQk" kind="presentation" identifier="ToFromTableView" id="i2u-uy-DUe"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -52,7 +52,7 @@
                                 <rect key="frame" x="16" y="72" width="568" height="470"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <fontDescription key="fontDescription" name="Georgia" family="Georgia" pointSize="20"/>
-                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences" returnKeyType="done" enablesReturnKeyAutomatically="YES"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences" enablesReturnKeyAutomatically="YES"/>
                             </textView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7pi-u3-kav">
                                 <rect key="frame" x="16" y="554" width="100" height="22"/>
@@ -87,7 +87,9 @@
                     </view>
                     <navigationItem key="navigationItem" id="Cs2-nH-DsU">
                         <barButtonItem key="leftBarButtonItem" title="Back" id="yQg-7a-12L">
+                            <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             <connections>
+                                <action selector="backButtonPressed:" destination="E2c-Ua-gIV" id="kv6-cB-dX3"/>
                                 <segue destination="ROH-79-Ap8" kind="unwind" unwindAction="unwindToList:" id="qpy-UC-9UZ"/>
                             </connections>
                         </barButtonItem>
@@ -130,11 +132,14 @@
                     </view>
                     <navigationItem key="navigationItem" id="oLh-MH-y11">
                         <barButtonItem key="leftBarButtonItem" title="Back to Note" id="5Kh-gx-r03">
+                            <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             <connections>
                                 <segue destination="kOG-XN-lP6" kind="unwind" unwindAction="unwindToList:" id="0yT-pm-aMg"/>
                             </connections>
                         </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" title="Choose Picture..." id="0GG-dJ-69P"/>
+                        <barButtonItem key="rightBarButtonItem" title="Choose Picture..." id="0GG-dJ-69P">
+                            <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="choosePicture" destination="0GG-dJ-69P" id="60O-EW-X7y"/>
@@ -154,6 +159,7 @@
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="tq3-hm-yd7">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <color key="barTintColor" red="0.21780343930000001" green="0.42651902920000001" blue="0.80794270830000003" alpha="1" colorSpace="calibratedRGB"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
@@ -172,6 +178,7 @@
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="EK5-Nt-M76">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <color key="barTintColor" red="0.21780343926197138" green="0.4265190292354441" blue="0.80794270833333337" alpha="1" colorSpace="calibratedRGB"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
@@ -184,6 +191,6 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="6NN-fz-FWw"/>
+        <segue reference="c8J-fC-lai"/>
     </inferredMetricsTieBreakers>
 </document>

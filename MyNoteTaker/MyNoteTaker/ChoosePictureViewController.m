@@ -57,8 +57,9 @@
         self.pictureViewer.image = self.picture;
     }
     
-    UIBarButtonItem *barButton = [[UIBarButtonItem alloc] initWithTitle:@"Select Picture" style:UIBarButtonItemStylePlain target:self action: @selector(choosePictureClicked:)];
+    UIBarButtonItem *barButton = [[UIBarButtonItem alloc] initWithTitle:@"Choose Picture..." style:UIBarButtonItemStylePlain target:self action: @selector(choosePictureClicked:)];
     self.navigationItem.rightBarButtonItem = barButton;
+    [self.navigationItem.rightBarButtonItem setTintColor:[UIColor whiteColor]];
     
 }
 
