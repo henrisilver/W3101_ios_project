@@ -69,6 +69,10 @@
     [self.textView resignFirstResponder];
 }
 
+- (void) viewWillAppear:(BOOL)animated {
+  [self.textView scrollRangeToVisible:NSMakeRange(0, 0)];
+}
+
 // Sets up navigation bar buttons, personalizing the right button. If the note has a picture,
 // a small thumbnail of the picture is displayed. If that is not the case, a small camera icon
 // is displayed to indicate to the user that a picture can be selected.
@@ -115,12 +119,14 @@
         self.note.image = self.rowImage;
         self.note.lastModifiedDate = self.rowDate;
         self.textView.text = self.rowNote;
+        
     }
     
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardWasShown:) name:UIKeyboardDidShowNotification object:nil];
     
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardWillBeHidden:) name:UIKeyboardWillHideNotification object:nil];
     
+    [self viewWillAppear:YES];
     [self viewDidAppear:YES];
 }
 
@@ -142,8 +148,8 @@
 - (void)keyboardWillBeHidden:(NSNotification*)notification {
     self.textView.contentInset = UIEdgeInsetsZero;
     self.textView.scrollIndicatorInsets = UIEdgeInsetsZero;
+    
 }
-
 // Performs segue that goes to the viewController that displays pictures in case the picture/camera
 // button is pressed
 - (IBAction)buttonPressed
